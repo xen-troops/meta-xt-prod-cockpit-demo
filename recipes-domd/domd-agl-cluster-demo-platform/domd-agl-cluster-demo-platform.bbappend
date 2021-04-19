@@ -17,9 +17,9 @@ SRC_URI_rcar_append = " \
     repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_cockpit_demo_src/domd.xml;scmdata=keep \
 "
 
-#XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = "
-#file://0001-linux-renesas-Remove-patch-230-from-renesas.scc.patch;patchdir=bsp/meta-rcar 
-#"
+XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = " \
+    file://0001-Kingfisher-remove-linux-renesas-uapi.patch;patchdir=bsp/meta-rcar \
+"
 # these layers will be added to bblayers.conf on do_configure
 XT_QUIRK_BB_ADD_LAYER += "meta-xt-prod-extra"
 XT_QUIRK_BB_ADD_LAYER += "meta-xt-agl-base"
