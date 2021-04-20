@@ -6,8 +6,6 @@ python __anonymous () {
     product_name = d.getVar('XT_PRODUCT_NAME', True)
     folder_name = product_name.replace("-", "_")
     d.setVar('XT_MANIFEST_FOLDER', folder_name)
-    if product_name == "prod-cockpit-demo-src" and not "domu" in d.getVar('XT_GUESTS_BUILD', True).split():
-        d.appendVar("XT_QUIRK_BB_ADD_LAYER", "meta-aos")
 }
 
 SRC_URI = " \
