@@ -2,6 +2,11 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/../../inc:"
 FILESEXTRAPATHS_prepend := "${THISDIR}/../domd-image-weston/files:"
 FILESEXTRAPATHS_append := "${THISDIR}/files:"
 
+BRANCH = "dunfell"
+SRCREV_meta-virt = "92cd3467502bd27b98a76862ca6525ce425a8479"
+SRCREV_meta-selinux = "7af62c91d7d00a260cf28e7908955539304d100d"
+SRCREV_meta-clang = "e63d6f9abba5348e2183089d6ef5ea384d7ae8d8"
+
 ###############################################################################
 # extra layers and files to be put after Yocto's do_unpack into inner builder
 ###############################################################################
@@ -21,8 +26,10 @@ XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = " \
     file://0001-Kingfisher-remove-linux-renesas-uapi.patch;patchdir=bsp/meta-rcar \
 "
 # these layers will be added to bblayers.conf on do_configure
-XT_QUIRK_BB_ADD_LAYER += "meta-xt-prod-extra"
-XT_QUIRK_BB_ADD_LAYER += "meta-xt-agl-base"
+XT_QUIRK_BB_ADD_LAYER += " \
+   meta-xt-prod-extra \
+"
+#XT_QUIRK_BB_ADD_LAYER += "meta-xt-agl-base"
 # Override revision of AGL auxiliary layers
 # N.B. the revision to use must be aligned with Poky's version of AGL to be built with
 BRANCH = "dunfell"
@@ -65,7 +72,6 @@ configure_versions_rcar() {
 
         base_update_conf_value ${local_conf} PREFERRED_VERSION_gles-module-egl-headers ${GLES_VERSION}
         base_add_conf_value ${local_conf} EXTRA_IMAGEDEPENDS "prepare-graphic-package"
-        base_add_conf_value ${local_conf} BBMASK "meta-agl/meta-agl-profile-graphical/recipes-multimedia/gstreamer1.0-plugins-bad/"
     else
         base_update_conf_value ${local_conf} PREFERRED_PROVIDER_virtual/libgles2 "rcar-proprietary-graphic"
         base_update_conf_value ${local_conf} PREFERRED_PROVIDER_virtual/egl "rcar-proprietary-graphic"
@@ -82,9 +88,11 @@ configure_versions_rcar() {
         base_add_conf_value ${local_conf} BBMASK "meta-xt-images-vgpu/recipes-kernel/kernel-module-gles/"
         base_add_conf_value ${local_conf} BBMASK "meta-renesas/meta-rcar-gen3/recipes-kernel/kernel-module-gles/"
         base_add_conf_value ${local_conf} BBMASK "meta-renesas/meta-rcar-gen3/recipes-graphics/gles-module/"
-        base_add_conf_value ${local_conf} BBMASK "meta-agl/meta-agl-profile-graphical/recipes-multimedia/gstreamer1.0-plugins-bad/"
         xt_unpack_proprietary
     fi
+    base_add_conf_value ${local_conf} BBMASK "meta-agl/meta-agl-profile-graphical/recipes-multimedia/gstreamer1.0-plugins-bad"
+    base_add_conf_value ${local_conf} BBMASK "meta-renesas-rcar-gen3/meta-rcar-gen3/recipes-multimedia/gstreamer/gstreamer1.0-plugins-bad"
+    base_add_conf_value ${local_conf} BBMASK "meta-renesas-rcar-gen3/meta-rcar-gen3/recipes-graphics/wayland/weston-init"
 
     # Disable shared link for GO packages
     base_set_conf_value ${local_conf} GO_LINKSHARED ""
