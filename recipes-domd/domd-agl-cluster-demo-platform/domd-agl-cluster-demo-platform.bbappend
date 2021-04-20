@@ -28,6 +28,7 @@ XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = " \
 # these layers will be added to bblayers.conf on do_configure
 XT_QUIRK_BB_ADD_LAYER += " \
    meta-xt-prod-extra \
+   external/meta-python2 \
 "
 #XT_QUIRK_BB_ADD_LAYER += "meta-xt-agl-base"
 # Override revision of AGL auxiliary layers
