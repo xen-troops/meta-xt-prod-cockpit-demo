@@ -1,8 +1,8 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 FILESEXTRAPATHS_prepend := "${THISDIR}/../../inc:"
 
-do_configure[depends] += "domd-image-weston:do_domd_install_machine_overrides"
-do_compile[depends] += "domd-image-weston:do_${BB_DEFAULT_TASK}"
+do_configure[depends] += "domd-agl-cluster-demo-platform:do_domd_install_machine_overrides"
+do_compile[depends] += "domd-agl-cluster-demo-platform:do_${BB_DEFAULT_TASK}"
 
 XT_GUESTS_BUILD ?= "doma"
 XT_GUESTS_INSTALL ?= "doma"
@@ -29,7 +29,7 @@ python __anonymous () {
 ################################################################################
 # Generic ARMv8
 ################################################################################
-SRC_URI = "repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_devel/dom0.xml;scmdata=keep"
+SRC_URI = "repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_cockpit_demo/dom0.xml;scmdata=keep"
 
 ###############################################################################
 # extra layers and files to be put after Yocto's do_unpack into inner builder
@@ -71,7 +71,7 @@ python do_configure_append() {
 }
 
 do_install_append () {
-    local LAYERDIR=${TOPDIR}/../meta-xt-prod-devel
+    local LAYERDIR=${TOPDIR}/../meta-xt-prod-cockpit-demo
     local TARGET="generic-armv8-xt"
     find ${LAYERDIR}/doc -iname "uirfs.sh" -exec cp -f {} ${DEPLOY_DIR}/dom0-image-thin-initramfs/images/${TARGET} \; || true
 }

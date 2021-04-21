@@ -6,12 +6,12 @@ python __anonymous () {
     product_name = d.getVar('XT_PRODUCT_NAME', True)
     folder_name = product_name.replace("-", "_")
     d.setVar('XT_MANIFEST_FOLDER', folder_name)
-    if product_name == "prod-devel-src" and not "domu" in d.getVar('XT_GUESTS_BUILD', True).split():
+    if product_name == "prod-cockpit-demo-src" and not "domu" in d.getVar('XT_GUESTS_BUILD', True).split():
         d.appendVar("XT_QUIRK_BB_ADD_LAYER", "meta-aos")
 }
 
 SRC_URI = " \
-    repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=${XT_MANIFEST_FOLDER}/domd.xml;scmdata=keep \
+    repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_cockpit_demo_src/domd.xml;scmdata=keep \
 "
 
 XT_QUIRK_UNPACK_SRC_URI += " \
@@ -198,7 +198,7 @@ python do_configure_append_rcar() {
 }
 
 do_install_append () {
-    local LAYERDIR=${TOPDIR}/../meta-xt-prod-devel
+    local LAYERDIR=${TOPDIR}/../meta-xt-prod-cockpit
     find ${LAYERDIR}/doc -iname "u-boot-env*" -exec cp -f {} ${DEPLOY_DIR}/domd-image-weston/images/${MACHINE}-xt \; || true
     find ${LAYERDIR}/doc -iname "mk_sdcard_image.sh" -exec cp -f {} ${DEPLOY_DIR}/domd-image-weston/images/${MACHINE}-xt \; \
     -exec cp -f {} ${DEPLOY_DIR} \; || true

@@ -1,0 +1,9 @@
+diff --git a/meta-rcar-gen3-adas/recipes-kernel/linux/linux-renesas/renesas-not-applied.scc b/meta-rcar-gen3-adas/recipes-kernel/linux/linux-renesas/renesas-not-applied.scc
+index 6d54284..6cf93d6 100644
+--- a/meta-rcar-gen3-adas/recipes-kernel/linux/linux-renesas/renesas-not-applied.scc
++++ b/meta-rcar-gen3-adas/recipes-kernel/linux/linux-renesas/renesas-not-applied.scc
+@@ -14,3 +14,4 @@
+ 0106-media-rcar-imr-Add-RSE-support.patch
+ 0110-mmc-tmio-Add-SDHI-SEQUENCER-support.patch
+ 0111-mmc-renesas_sdhi-Add-SDHI-SEQUENCER-support.patch
++0230-drivers-flag-buses-which-demand-DMA-configuration.patch
