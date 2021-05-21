@@ -72,7 +72,7 @@ define_partitions()
 			DOMD_PARTITION=2
 			DOMD_LABEL=domd
 			DOMA_START=$DOMD_END  # Also is used as flag that DomA is defined
-			DOMA_END=$((DOMA_START+4440))  # 8697
+			DOMA_END=$((DOMA_START+7710))  # 8697
 			DOMA_PARTITION=3
 			DOMA_LABEL=doma
 			DEFAULT_IMAGE_SIZE_GIB=$(((DOMA_END/1024)+1))
