@@ -7,8 +7,6 @@ do_configure[depends] += "domd-agl-cluster-demo-platform:do_domd_install_machine
 SRC_URI = " \
         repo://github.com/xen-troops/manifests;protocol=https;branch=REL-v5.0;manifest=prod_devel/domu_android_host_tools.xml;scmdata=keep \
 "
-#    repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_cockpit_demo/domu_android_host_tools.xml;scmdata=keep 
-#"
 
 XT_BB_LAYERS_FILE = "meta-xt-prod-extra/doc/bblayers.conf.domu-image-android"
 XT_BB_LOCAL_CONF_FILE = "meta-xt-prod-extra/doc/local.conf.domu-image-android"
