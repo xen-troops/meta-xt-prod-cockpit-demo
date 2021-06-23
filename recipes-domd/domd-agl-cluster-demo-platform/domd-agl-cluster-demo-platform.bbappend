@@ -19,6 +19,7 @@ SRC_URI_rcar_append = " \
 
 XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = "\
     file://0001-linux-renesas-Remove-patch-230-from-renesas.scc.patch;patchdir=bsp/meta-rcar \
+    file://0001-kingfisher_output.cfg-remove-mode-off-for-HDMI-A-2.patch;patchdir=meta-agl \
 "
 # these layers will be added to bblayers.conf on do_configure
 XT_QUIRK_BB_ADD_LAYER += "meta-xt-prod-extra"

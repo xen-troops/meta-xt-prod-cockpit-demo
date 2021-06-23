@@ -1,0 +1,25 @@
+From c661e71f06cfb2ce44cbe8d8e52ef5245acd1d4d Mon Sep 17 00:00:00 2001
+From: xen-troops-buildbot <not.real.email@epam.com>
+Date: Tue, 22 Jun 2021 16:52:31 +0000
+Subject: [PATCH] kingfisher_output.cfg: remove mode=off for HDMI-A-2
+
+Change-Id: I15fcf4662acbf2468cb59b7f057bdfc654c039e3
+Signed-off-by: Ihor Usyk <ihor_usyk@epam.com>
+---
+ .../recipes-graphics/wayland/weston-ini-conf/kingfisher_output.cfg       | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/meta-agl-bsp/meta-rcar-gen3/recipes-graphics/wayland/weston-ini-conf/kingfisher_output.cfg b/meta-agl-bsp/meta-rcar-gen3/recipes-graphics/wayland/weston-ini-conf/kingfisher_output.cfg
+index a194a4a..c88c0a6 100644
+--- a/meta-agl-bsp/meta-rcar-gen3/recipes-graphics/wayland/weston-ini-conf/kingfisher_output.cfg
++++ b/meta-agl-bsp/meta-rcar-gen3/recipes-graphics/wayland/weston-ini-conf/kingfisher_output.cfg
+@@ -1,6 +1,5 @@
+ [output]
+ name=HDMI-A-2
+-mode=off
+ 
+ [output]
+ name=LVDS-1
+-- 
+2.7.4
+
