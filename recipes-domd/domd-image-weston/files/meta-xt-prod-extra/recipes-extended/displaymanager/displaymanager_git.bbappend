@@ -14,7 +14,7 @@ SRC_URI_append = " \
     file://dm-salvator-xs-m3n.cfg \
 "
 
-RDEPENDS_${PN} += " dbus-cxx"
+RDEPENDS_${PN} += " dbus-cxx displaymanager-ready "
 
 EXTRA_OECMAKE_append = " -DWITH_DOC=OFF -DCMAKE_BUILD_TYPE=Release"
 
@@ -30,6 +30,7 @@ DM_CONFIG_salvator-xs-m3n-xt = "dm-salvator-xs-m3n.cfg"
 inherit systemd
 
 SYSTEMD_SERVICE_${PN} = "display-manager.service"
+SYSTEMD_AUTO_ENABLE = "disable"
 
 do_install_append() {
     install -d ${D}${sysconfdir}/dbus-1/system.d
