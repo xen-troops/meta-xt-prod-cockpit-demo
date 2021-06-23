@@ -1,0 +1,26 @@
+From a01e4fc6d8cea2aa7dbc8ed2a9637622d66137e4 Mon Sep 17 00:00:00 2001
+From: Ihor Usyk <ihor_usyk@epam.com>
+Date: Wed, 23 Jun 2021 15:28:29 +0000
+Subject: [PATCH] hdmi-a-1-180.cfg: change transform at 0
+
+Old value, 180, shows rotated value
+
+Change-Id: I515f96a8335752da911dd1d07604ba68fae088e7
+Signed-off-by: Ihor Usyk <ihor_usyk@epam.com>
+---
+ recipes-graphics/wayland/weston-ini-conf/hdmi-a-1-180.cfg | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/recipes-graphics/wayland/weston-ini-conf/hdmi-a-1-180.cfg b/recipes-graphics/wayland/weston-ini-conf/hdmi-a-1-180.cfg
+index 7648c77..59e2c2d 100644
+--- a/recipes-graphics/wayland/weston-ini-conf/hdmi-a-1-180.cfg
++++ b/recipes-graphics/wayland/weston-ini-conf/hdmi-a-1-180.cfg
+@@ -1,4 +1,4 @@
+ # A display is connected to HDMI-A-1
+ [output]
+ name=HDMI-A-1
+-transform=180
++transform=0
+-- 
+2.7.4
+
