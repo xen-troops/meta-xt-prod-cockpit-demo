@@ -12,6 +12,7 @@ SRC_URI_append = " \
     file://dm-salvator-x-h3.cfg \
     file://dm-ulcb.cfg \
     file://dm-salvator-xs-m3n.cfg \
+    file://dm-h3ulcb-4x2g-kf.cfg \
 "
 
 RDEPENDS_${PN} += " dbus-cxx displaymanager-ready "
@@ -24,7 +25,7 @@ DM_CONFIG_salvator-xs-h3-xt = "dm-salvator-x-h3.cfg"
 DM_CONFIG_salvator-xs-h3-4x2g-xt = "dm-salvator-x-h3.cfg"
 DM_CONFIG_salvator-x-h3-4x2g-xt = "dm-salvator-x-h3.cfg"
 DM_CONFIG_ulcb = "dm-ulcb.cfg"
-DM_CONFIG_kingfisher_r8a7795 = "dm-salvator-x-h3.cfg"
+DM_CONFIG_kingfisher_r8a7795 = "dm-h3ulcb-4x2g-kf.cfg"
 DM_CONFIG_salvator-xs-m3n-xt = "dm-salvator-xs-m3n.cfg"
 
 inherit systemd
