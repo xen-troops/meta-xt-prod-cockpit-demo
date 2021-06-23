@@ -12,7 +12,6 @@ SRC_URI = " \
 RDEPENDS_${PN} += "bash"
 
 SYSTEMD_SERVICE_${PN} = "display-manager-ready.service"
-SYSTEMD_AUTO_ENABLE = "disable"
 
 do_install() {
     install -D -m 0755 ${WORKDIR}/display-manager-ready ${D}${bindir}/display-manager-ready
