@@ -1,5 +1,5 @@
 SRC_URI = "gitsm://github.com/xen-troops/agl-cluster-demo-vis.git;protocol=https"
-SRCREV  = "36622ac7a815f5c8feabf5f405b25ddcf398cda5"
+SRCREV  = "c9e1ec4486ef0ec595f7d24e966e86c0d3c65471"
 
 LICENSE     = "Apache-2.0 & BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ae6497158920d9524cf208c09cc4c984"
