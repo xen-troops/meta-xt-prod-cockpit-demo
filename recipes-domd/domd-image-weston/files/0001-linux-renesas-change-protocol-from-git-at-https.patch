@@ -1,0 +1,28 @@
+From b7bfbcb0b5867cb099ba413aad905596b16974d9 Mon Sep 17 00:00:00 2001
+From: Ihor Usyk <ihor_usyk@epam.com>
+Date: Fri, 8 Apr 2022 15:55:43 +0000
+Subject: [PATCH] linux-renesas: change protocol from git at https
+
+Protocol 'git' is deprecated.
+
+Signed-off-by: Ihor Usyk <ihor_usyk@epam.com>
+---
+ meta-rcar-gen3/recipes-kernel/linux/linux-renesas_4.14.bb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meta-rcar-gen3/recipes-kernel/linux/linux-renesas_4.14.bb b/meta-rcar-gen3/recipes-kernel/linux/linux-renesas_4.14.bb
+index f559fc2..f74dbee 100644
+--- a/meta-rcar-gen3/recipes-kernel/linux/linux-renesas_4.14.bb
++++ b/meta-rcar-gen3/recipes-kernel/linux/linux-renesas_4.14.bb
+@@ -14,7 +14,7 @@ RENESAS_BSP_URL = " \
+ BRANCH = "v4.14.75-ltsi/rcar-3.9.6"
+ SRCREV = "1d76a004d3a19367669b861559c1fbbf546b3065"
+ 
+-SRC_URI = "${RENESAS_BSP_URL};protocol=git;nocheckout=1;branch=${BRANCH}"
++SRC_URI = "${RENESAS_BSP_URL};protocol=https;nocheckout=1;branch=${BRANCH}"
+ 
+ LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
+ 
+-- 
+2.17.1
+
