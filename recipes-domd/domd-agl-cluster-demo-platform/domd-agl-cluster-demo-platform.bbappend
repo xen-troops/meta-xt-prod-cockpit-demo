@@ -13,6 +13,11 @@ XT_QUIRK_UNPACK_SRC_URI += "\
     file://xen-version.inc;subdir=repo/meta-xt-prod-extra/recipes-extended/xen \
 "
 
+python __anonymous () {
+    if not d.getVar("AOS_VIS_PACKAGE_DIR", True):
+        d.appendVar("XT_QUIRK_BB_ADD_LAYER", " meta-aos")
+}
+
 SRC_URI_rcar_append = " \
     repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_cockpit_demo_src/domd.xml;scmdata=keep \
 "
@@ -121,6 +126,11 @@ configure_versions_rcar() {
 
     if [ ! -z "${AOS_VIS_PLUGINS}" ];then
         base_update_conf_value ${local_conf} AOS_VIS_PLUGINS "${AOS_VIS_PLUGINS}"
+        base_add_conf_value ${local_conf} GOVERSION "1.14"
+    fi
+
+    if [ ! -z "${AOS_VIS_PACKAGE_DIR}" ];then
+        base_update_conf_value ${local_conf} AOS_VIS_PACKAGE_DIR "${AOS_VIS_PACKAGE_DIR}"
     fi
 
     # Network manager to use (possible values: systemd, connman).
