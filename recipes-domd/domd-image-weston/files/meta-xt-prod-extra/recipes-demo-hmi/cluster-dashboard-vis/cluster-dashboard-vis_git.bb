@@ -21,11 +21,3 @@ RDEPENDS_${PN} += " \
 	qtwebsockets \
 	qtwebsockets-qmlplugins \
 "
-
-VISSERVER = "10.0.0.1    wwwivi"
-
-pkg_postinst_ontarget_${PN} () {
-    if ! grep -q '${VISSERVER}' $D${sysconfdir}/hosts ; then
-        echo '${VISSERVER}' >> $D${sysconfdir}/hosts
-    fi
-}
