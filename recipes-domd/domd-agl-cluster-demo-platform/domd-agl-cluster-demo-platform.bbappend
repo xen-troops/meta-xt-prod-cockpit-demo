@@ -26,6 +26,13 @@ SRC_URI_rcar_append = " \
     repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=${XT_MANIFEST_FOLDER}/domd.xml;scmdata=keep \
 "
 
+# We add 500 MB of free space due to instalation of AGL's stuff in post-install.
+# Variable specifies space in KBytes.
+# Also see IMAGE_OVERHEAD_FACTOR as another way to increase free space.
+#
+# After increase of this variable CHECK SIZE OF DOMD in mk_sdcard_image.sh
+IMAGE_ROOTFS_EXTRA_SPACE = "512000"
+
 XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = "\
     file://0001-linux-renesas-Remove-patch-230-from-renesas.scc.patch;patchdir=bsp/meta-rcar \
     file://0001-ctemplate-set-git-protocol-as-https.patch;patchdir=bsp/meta-rcar \
