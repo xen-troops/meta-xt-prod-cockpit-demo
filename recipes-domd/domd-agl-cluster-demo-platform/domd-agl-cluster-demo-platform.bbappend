@@ -14,12 +14,16 @@ XT_QUIRK_UNPACK_SRC_URI += "\
 "
 
 python __anonymous () {
+    product_name = d.getVar('XT_PRODUCT_NAME', True)
+    folder_name = product_name.replace("-", "_")
+    d.setVar('XT_MANIFEST_FOLDER', folder_name)
+
     if not d.getVar("AOS_VIS_PACKAGE_DIR", True):
         d.appendVar("XT_QUIRK_BB_ADD_LAYER", " meta-aos")
 }
 
 SRC_URI_rcar_append = " \
-    repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_cockpit_demo_src/domd.xml;scmdata=keep \
+    repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=${XT_MANIFEST_FOLDER}/domd.xml;scmdata=keep \
 "
 
 XT_QUIRK_PATCH_SRC_URI_append_h3ulcb-4x2g-kf = "\
