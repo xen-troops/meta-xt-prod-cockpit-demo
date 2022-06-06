@@ -182,12 +182,7 @@ python do_configure_append_h3ulcb-4x2g-kf() {
 
 do_install_append () {
     local LAYERDIR=${TOPDIR}/../meta-xt-prod-cockpit-demo
-    find ${LAYERDIR}/doc -iname "u-boot-env*" -exec cp -f {} ${DEPLOY_DIR}/domd-image-weston/images/${MACHINE}-xt \; || true
-    if echo "${XT_GUESTS_INSTALL}" | grep -qi "domu";then
-        find ${LAYERDIR}/doc -iname "mk_sdcard_image_domu.sh" -exec cp -f {} ${DEPLOY_DIR}/domd-image-weston/images/${MACHINE}-xt/mk_sdcard_image.sh \; \
-        -exec cp -f {} ${DEPLOY_DIR}/mk_sdcard_image.sh \; || true
-    else
-        find ${LAYERDIR}/doc -iname "mk_sdcard_image.sh" -exec cp -f {} ${DEPLOY_DIR}/domd-image-weston/images/${MACHINE}-xt \; \
+    find ${LAYERDIR}/doc -iname "u-boot-env*" -exec cp -f {} ${DEPLOY_DIR}/domd-agl-cluster-demo-platform/images/${MACHINE}-xt \; || true
+    find ${LAYERDIR}/doc -iname "mk_sdcard_image.sh" -exec cp -f {} ${DEPLOY_DIR}/domd-agl-cluster-demo-platform/images/${MACHINE}-xt \; \
         -exec cp -f {} ${DEPLOY_DIR} \; || true
-    fi
 }
